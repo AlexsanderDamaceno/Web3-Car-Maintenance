@@ -7,7 +7,7 @@ contract CarMaintenance
     {
         string licensePlate;
         string carType;
-        string builderBrand;
+        string CarBrand;
         MaintenanceRecord[] maintenanceRecords;
     }
 
@@ -15,6 +15,22 @@ contract CarMaintenance
         uint256 timestamp;
         string description;
     }
+
+    mapping(uint256 => Car) public CarsRecords;
+
+    uint256 public totalCars;
+
+    function addCar(string memory _licensePlate, string memory _carType, string memory CarBrand ) public {
+    
+        totalCars++;
+     
+        Car storage newCar = Cars_Records[totalCars];
+        newCar.licensePlate = _licensePlate;
+        newCar.carType = _carType;
+        newCar.CarBrand = CarBrand;        
+        
+    }
+
 
 
 
